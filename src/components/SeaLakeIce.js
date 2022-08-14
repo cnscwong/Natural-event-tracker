@@ -1,7 +1,7 @@
 import { Marker } from "react-leaflet";
 import L from "leaflet";
 
-const SeaLakeIce = ({ position }) => {
+const SeaLakeIce = ({ position, onClick }) => {
   var blueIcon = new L.Icon({
     iconUrl:
       "https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-blue.png",
@@ -13,7 +13,13 @@ const SeaLakeIce = ({ position }) => {
     shadowSize: [41, 41],
   });
 
-  return <Marker position={position} icon={blueIcon} key={15} />;
+  return (
+    <Marker
+      position={position}
+      icon={blueIcon}
+      eventHandlers={{ click: onClick }}
+    />
+  );
 };
 
 export default SeaLakeIce;

@@ -1,7 +1,7 @@
 import { Marker } from "react-leaflet";
 import L from "leaflet";
 
-const Volcano = ({ position }) => {
+const Volcano = ({ position, onClick }) => {
   var blackIcon = new L.Icon({
     iconUrl:
       "https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-black.png",
@@ -13,7 +13,13 @@ const Volcano = ({ position }) => {
     shadowSize: [41, 41],
   });
 
-  return <Marker position={position} icon={blackIcon} key={12} />;
+  return (
+    <Marker
+      position={position}
+      icon={blackIcon}
+      eventHandlers={{ click: onClick }}
+    />
+  );
 };
 
 export default Volcano;

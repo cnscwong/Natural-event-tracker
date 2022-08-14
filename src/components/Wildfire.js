@@ -1,7 +1,7 @@
 import { Marker } from "react-leaflet";
 import L from "leaflet";
 
-const Wildfire = ({ position }) => {
+const Wildfire = ({ position, onClick }) => {
   var redIcon = new L.Icon({
     iconUrl:
       "https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-red.png",
@@ -13,7 +13,13 @@ const Wildfire = ({ position }) => {
     shadowSize: [41, 41],
   });
 
-  return <Marker position={position} icon={redIcon} key={8} />;
+  return (
+    <Marker
+      position={position}
+      icon={redIcon}
+      eventHandlers={{ click: onClick }}
+    />
+  );
 };
 
 export default Wildfire;

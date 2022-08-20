@@ -20,14 +20,15 @@ const Map = ({ eventData, center, zoom }) => {
       return (
         <Wildfire
           position={pos}
-          onClick={() =>
+          onClick={() => {
             setLocationInfo({
               id: ev.id,
               title: ev.title,
               lng: ev.geometry[0].coordinates[1],
               lat: ev.geometry[0].coordinates[0],
-            })
-          }
+              state: true,
+            });
+          }}
         />
       );
     }
@@ -40,14 +41,15 @@ const Map = ({ eventData, center, zoom }) => {
       return (
         <SeaLakeIce
           position={pos}
-          onClick={() =>
+          onClick={() => {
             setLocationInfo({
               id: ev.id,
               title: ev.title,
               lng: ev.geometry[0].coordinates[1],
               lat: ev.geometry[0].coordinates[0],
-            })
-          }
+              state: true,
+            });
+          }}
         />
       );
     }
@@ -60,14 +62,15 @@ const Map = ({ eventData, center, zoom }) => {
       return (
         <Volcano
           position={pos}
-          onClick={() =>
+          onClick={() => {
             setLocationInfo({
               id: ev.id,
               title: ev.title,
               lng: ev.geometry[0].coordinates[1],
               lat: ev.geometry[0].coordinates[0],
-            })
-          }
+              state: true,
+            });
+          }}
         />
       );
     }
@@ -99,8 +102,8 @@ const Map = ({ eventData, center, zoom }) => {
           </LayersControl.Overlay>
         </LayersControl>
         <ZoomControl position="topright" />
+        {locationInfo && <LocationInfoBox info={locationInfo} />}
       </MapContainer>
-      {locationInfo && <LocationInfoBox info={locationInfo} />}
     </div>
   );
 };

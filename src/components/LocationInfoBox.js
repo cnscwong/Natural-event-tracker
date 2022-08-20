@@ -1,5 +1,20 @@
+import { useMapEvents } from "react-leaflet";
+import { useState, useEffect } from "react";
+
 const LocationInfoBox = ({ info }) => {
-  return (
+  const [infoDisplay, setInfoDisplay] = useState(true);
+
+  useMapEvents({
+    click: () => {
+      setInfoDisplay(false);
+    },
+  });
+
+  useEffect(() => {
+    setInfoDisplay(info.state);
+  }, [info]);
+
+  return infoDisplay ? (
     <div className="location-info">
       <h2>Event Location Info</h2>
       <ul>
@@ -16,8 +31,9 @@ const LocationInfoBox = ({ info }) => {
           LONGITUDE: <strong>{info.lng}</strong>
         </li>
       </ul>
+      <h5>Click on the map to close</h5>
     </div>
-  );
+  ) : null;
 };
 
 export default LocationInfoBox;

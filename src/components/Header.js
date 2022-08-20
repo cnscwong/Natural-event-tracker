@@ -1,7 +1,7 @@
 const Header = () => {
   return (
     <header className="header">
-      <h1>Natural Event Tracker (Powered by NASA)</h1>
+      <h1>Natural Event Tracker</h1>
     </header>
   );
 };
